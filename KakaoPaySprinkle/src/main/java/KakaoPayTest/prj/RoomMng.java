@@ -36,8 +36,12 @@ public class RoomMng {
 			RoomInfo	RoomInfoTemp = new RoomInfo(strRoomId);			
 			strToken = RoomInfoTemp.SprinkleMoney(nUserId, nSprinkleMoney, nSprinklePersonCnt);
 			
-			//! 새로 생성된 방을 변수에 입력한다.
-			this.m_mapRoomInfo.put(strRoomId, RoomInfoTemp);
+			//! 토큰이 없으면 만들지 않음..
+			if(!strToken.isEmpty())
+			{
+				//! 새로 생성된 방을 변수에 입력한다.
+				this.m_mapRoomInfo.put(strRoomId, RoomInfoTemp);
+			}
 		}
 		
 		return strToken;

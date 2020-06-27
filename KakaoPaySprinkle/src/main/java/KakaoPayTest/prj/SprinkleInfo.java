@@ -80,6 +80,7 @@ public class SprinkleInfo {
 	public SprinkleInfo(int nSprinkleUserId, int nSprinkleMoney, int nSprinkleDivPersonCnt)	
 	{
 		this.m_nFinishDivMoney = 0;
+		this.m_strToken ="";
 		this.m_nSprinkleUserId = nSprinkleUserId;
 		this.m_nSprinkleMoney = nSprinkleMoney;
 		//this.nSprinkleDivPersonCnt = nSprinkleDivPersonCnt;
@@ -93,6 +94,11 @@ public class SprinkleInfo {
 		//! 뿌리기 건당 분배!
 		int nDiv = nSprinkleMoney / nSprinkleDivPersonCnt;
 		int nNmg = nSprinkleMoney % nSprinkleDivPersonCnt;		
+		
+		//! 받는사람이 뿌리는 돈보다 많은경우는 토큰을 만들지 않음..(실패처리)
+		if(nDiv == 0)
+			return;
+		
 		for(int v = 0; v < nSprinkleDivPersonCnt; v++)
 		{
 			//! 최초 수령자가 가장 많은 금액을 가져가도록!

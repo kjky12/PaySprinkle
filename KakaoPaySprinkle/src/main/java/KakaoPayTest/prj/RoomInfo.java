@@ -28,8 +28,13 @@ public class RoomInfo {
 		//! 토큰을 받아온다.
 		String strToken = SprinkleInfoTemp.getM_strToken();
 		
-		//! 돈뿌리기 정보를 Key토큰, 뿌리기정보로 변수로 관리한다.
-		m_mapSprinkleInfo.put(strToken, SprinkleInfoTemp);
+		//! 토큰이 없으면 만들지 않음
+		if(!strToken.isEmpty())
+		{
+			//! 돈뿌리기 정보를 Key토큰, 뿌리기정보로 변수로 관리한다.
+			m_mapSprinkleInfo.put(strToken, SprinkleInfoTemp);			
+		}
+		
 		
 		return strToken;
 	}
